@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const mongo_url =
-  "mongodb+srv://donateloz:y9r_aFBrxs7NeKT@cluster0.xdo0zqj.mongodb.net/?retryWrites=true&w=majority";
+const mongo_url = process.env.mongo_url || "mongodb://localhost:27017";
 
 const db = async () => {
   await mongoose
