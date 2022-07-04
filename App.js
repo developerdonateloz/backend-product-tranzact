@@ -19,7 +19,7 @@ app.put("/product/:id", controllers.update);
 const PORT = process.env.PORT || 4100;
 
 app.listen(PORT, () => {
-  console.log(`working backend with JS go`);
+  console.log(`Nodejs Application running`);
   db();
 });
 

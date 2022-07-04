@@ -2,6 +2,8 @@ const Product = require("../models/product");
 const logger = require("../logger");
 
 const insertProduct = async (req, res) => {
+  const start = Date.now();
+
   const { nombre, precio, categoria } = req.body;
   Product.findOne({ nombre }).then((product) => {
     if (product) {
@@ -23,6 +25,10 @@ const insertProduct = async (req, res) => {
           res.json({ mensaje: "Producto creado con éxito" });
         })
         .catch((error) => console.error(error));
+      const end = Date.now();
+      var duration = end - start;
+
+      logger.log("info", `Service InsertProduct - Duración: ${duration}ms`);
     }
   });
 };

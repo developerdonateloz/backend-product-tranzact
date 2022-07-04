@@ -2,7 +2,8 @@ const logger = require("../logger");
 const Product = require("../models/product");
 
 const getProductoById = async (req, res) => {
-  logger.log("info", "Service getProductById starting");
+  const start = Date.now();
+
   const id = req.params.id;
 
   if (id.length === 24) {
@@ -10,7 +11,10 @@ const getProductoById = async (req, res) => {
       if (!product) {
         return res.json({ mensaje: "No existe el producto con el ID enviado" });
       } else {
-        logger.log("info", "Service getProductById ending");
+        const end = Date.now();
+        var duration = end - start;
+
+        logger.log("info", `Service GetProductById - Duración: ${duration}ms`);
         return res.json(product._doc);
       }
     });
