@@ -15,9 +15,10 @@ app.get("/product/:id", controllers.get);
 app.post("/product", controllers.insert);
 app.put("/product/:id", controllers.update);
 
-const port = 4100;
+//const port = 4100;
+const PORT = process.env.PORT;
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`working backend with JS go`);
   db();
 });
