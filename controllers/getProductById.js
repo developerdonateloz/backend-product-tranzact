@@ -9,7 +9,9 @@ const getProductoById = async (req, res) => {
   if (id.length === 24) {
     Product.findById(id).then((product) => {
       if (!product) {
-        return res.json({ mensaje: "No existe el producto con el ID enviado" });
+        return res
+          .status(404)
+          .json({ mensaje: "No existe el producto con el ID enviado" });
       } else {
         const end = Date.now();
         var duration = end - start;
