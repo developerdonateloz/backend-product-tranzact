@@ -1,6 +1,11 @@
 const Product = require("../models/product");
 
 const updateProduct = async (req, res) => {
+  const apiKeyValue = req.header("ApiKey");
+  if (apiKeyValue !== config.ApiKeySecret) {
+    return res.status(401).send("Not authorized");
+  }
+
   const start = Date.now();
   const id = req.params.id;
 
