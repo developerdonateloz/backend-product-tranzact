@@ -1,5 +1,6 @@
 const logger = require("../logger");
 const Product = require("../models/product");
+const config = require("../config/config");
 
 const getProductoById = async (req, res) => {
   const apiKeyValue = req.header("ApiKey");
